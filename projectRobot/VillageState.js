@@ -1,4 +1,5 @@
 import roadGraph from "./buildGraph.js";
+import randomPick from "./randomPick.js";
 
 class VillageState {
     constructor(place, parcels) {
@@ -18,5 +19,21 @@ class VillageState {
         }
     }
 }
+
+VillageState.random = function(parcelCount = 5) {
+    let parcels = [];
+
+    for (let i = 0; i < parcelCount; i++) {
+        let address = randomPick(Object.keys(roadGraph));
+        let place;
+
+        do {
+            place = randomPick(Object.keys(roadGraph));
+        } while (place == address);
+            parcels.push({place, address});
+    }
+
+    return new VillageState("Post Office", parcels);
+};
 
 export default VillageState;
