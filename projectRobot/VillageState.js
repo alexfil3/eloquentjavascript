@@ -12,7 +12,7 @@ class VillageState {
             return this;
         } else {
             let parcels = this.parcels
-                .map(({ place, address }) => place != this.place ? p : { place: destination, address})
+                .map(({ place, address }) => place != this.place ? {place, address} : { place: destination, address})
                 .filter(({ place, address }) => place != address);
 
             return new VillageState(destination, parcels);
