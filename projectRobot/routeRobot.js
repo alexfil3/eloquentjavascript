@@ -1,3 +1,5 @@
+import mailRoute from "./mailRoute.js";
+
 function routeRobot(state, memory) {
     if (memory.length == 0) {
         memory = mailRoute;
