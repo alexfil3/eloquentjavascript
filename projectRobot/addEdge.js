@@ -1,4 +1,4 @@
-function addEdge(from, to) {
+function addEdge(from, to, graph) {
     if (from in graph) {
         graph[from].push(to);
     } else {
